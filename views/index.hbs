@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+</head>
+<body dir="ltr">
+  <h1>{{title}}</h1>
+
+  <form action="/buttons/seasonal" method="GET">
+    <button type="submit">Show Seasonal Items</button>
+  </form>
+
+  <form action="/buttons/similar" method="GET">
+    <button type="submit">Show Similar Products</button>
+  </form>
+
+  <form action="/buttons/random" method="GET">
+    <button type="submit">Show Random Items with Localization</button>
+  </form>
+
+  <hr />
+
+  {{#if items}}
+    <h2>Items:</h2>
+    <ul>
+      {{#each items}}
+        <li dir="{{this.dir}}">
+          {{this.name}} — {{this.price}}$
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No items to display</p>
+  {{/if}}
+</body>
+</html>
